@@ -272,6 +272,71 @@
             margin-bottom: 1rem;
         }
 
+        .ecoles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .ecole-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .ecole-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+            border-color: rgba(0, 212, 255, 0.5);
+        }
+
+        .ecole-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ecole-logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .ecole-info h3 {
+            font-size: 1.5rem;
+            color: #00d4ff;
+            margin-bottom: 0.3rem;
+        }
+
+        .ecole-info p {
+            color: #a0a0a0;
+            font-size: 0.95rem;
+        }
+
+        .ecole-description {
+            color: #c0c0c0;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .ecole-diplome {
+            color: #7b2ff7;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
         .veille-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -421,89 +486,71 @@
         <ul>
             <li><a href="#accueil" class="nav-link">Accueil</a></li>
             <li><a href="#about" class="nav-link">À propos</a></li>
-            <li><a href="#entreprises" class="nav-link">Entreprises</a></li>
+            <li><a href="#ecoles" class="nav-link">Ecoles</a></li>
             <li><a href="#projets" class="nav-link">Projets</a></li>
             <li><a href="#veille" class="nav-link">Veille</a></li>
             <li><a href="#competences" class="nav-link">Compétences</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
+            <li><a href="#entreprises" class="nav-link">Entreprises</a></li>
         </ul>
     </nav>
-
-    <section id="accueil" class="hero">
-        <div class="hero-content">
-            <h1>Votre Nom</h1>
-            <p>Développeur Web Full Stack | Designer | Créatif</p>
-            <a href="#projets" class="cta-button">Voir mes projets</a>
-        </div>
-    </section>
 
     <section id="about" class="section">
         <h2 class="section-title">À propos de moi</h2>
         <div class="about-content">
             <p>
-                Passionné par le développement web et le design, je crée des expériences numériques uniques et engageantes. 
+                Passionné par le développement web et le design, je crée des expériences numériques uniques et engageantes.
                 Avec plusieurs années d'expérience, je transforme des idées en solutions digitales innovantes.
             </p>
         </div>
     </section>
 
-    <section id="entreprises" class="section">
-        <h2 class="section-title">Entreprises</h2>
-        <div class="entreprises-grid">
-            <div class="entreprise-card">
-                <div class="entreprise-header">
-                    <div class="entreprise-logo">A</div>
-                    <div class="entreprise-info">
-                        <h3>Entreprise Alpha</h3>
-                        <p>2022 - Présent</p>
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h1>LANGUI Thomas</h1>
+            <p>Développeur Web Full Stack</p>
+            <a href="#projets" class="cta-button">Voir mes projets</a>
+        </div>
+    </section>
+    <section id="ecoles" class="section">
+        <h2 class="section-title">Formation</h2>
+        <div class="ecoles-grid">
+            <div class="ecole-card">
+                <div class="ecole-header">
+                    <div class="ecole-logo">🎓</div>
+                    <div class="ecole-info">
+                        <h3>LYCÉE PRIVÉ ET UFA - ROBERT SCHUMAN</h3>
+                        <p>2024 - Aujourd'hui</p>
                     </div>
                 </div>
-                <p class="entreprise-description">
-                    Développeur Full Stack au sein d'une startup innovante spécialisée dans les solutions SaaS. 
-                    Responsable de l'architecture et du développement de nouvelles fonctionnalités.
+                <p class="ecole-diplome">BTS-SIO-SLAM</p>
+                <p class="ecole-description">
+                    Formation spécialisée dans le développement web et d'application,
+                    il nous apprenent les bonnes pratiques de développement.
                 </p>
                 <div class="project-tags">
-                    <span class="tag">React</span>
-                    <span class="tag">Node.js</span>
-                    <span class="tag">MongoDB</span>
+                    <span class="tag">Full Stack</span>
+                    <span class="tag">PHP/HTML/CSS</span>
+                    <span class="tag">JAVA</span>
+                    <span class="tag">JS</span>
                 </div>
             </div>
 
-            <div class="entreprise-card">
-                <div class="entreprise-header">
-                    <div class="entreprise-logo">B</div>
-                    <div class="entreprise-info">
-                        <h3>Tech Solutions Beta</h3>
-                        <p>2020 - 2022</p>
+            <div class="ecole-card">
+                <div class="ecole-header">
+                    <div class="ecole-logo">📚</div>
+                    <div class="ecole-info">
+                        <h3>LYCÉE PRIVÉ ET UFA - ROBERT SCHUMAN</h3>
+                        <p>2021 - 2024</p>
                     </div>
                 </div>
-                <p class="entreprise-description">
-                    Développeur Frontend dans une agence digitale. Création d'interfaces web modernes et responsive 
-                    pour des clients variés dans différents secteurs d'activité.
+                <p class="ecole-diplome">Baccalauréat Professionel - Système Numérique</p>
+                <p class="ecole-description">
+                    Formation générale avec approfondissement en informatique.
                 </p>
                 <div class="project-tags">
-                    <span class="tag">Vue.js</span>
-                    <span class="tag">Tailwind</span>
-                    <span class="tag">TypeScript</span>
-                </div>
-            </div>
-
-            <div class="entreprise-card">
-                <div class="entreprise-header">
-                    <div class="entreprise-logo">C</div>
-                    <div class="entreprise-info">
-                        <h3>Digital Gamma</h3>
-                        <p>2018 - 2020</p>
-                    </div>
-                </div>
-                <p class="entreprise-description">
-                    Stage puis alternance en tant que développeur web junior. Participation au développement 
-                    de sites e-commerce et d'applications web sur mesure.
-                </p>
-                <div class="project-tags">
-                    <span class="tag">PHP</span>
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">MySQL</span>
+                    <span class="tag">Cisco</span>
+                    <span class="tag">Téléphonie IP</span>
+                    <span class="tag">OS (Gestion WIN serveur/Linux)</span>
                 </div>
             </div>
         </div>
@@ -513,80 +560,72 @@
         <h2 class="section-title">Mes Projets</h2>
         <div class="projects-grid">
             <div class="project-card">
-                <h3>Plateforme E-learning</h3>
+                <h3>Projet Pendu/Bataille Navale</h3>
                 <p>
-                    Application web complète permettant aux étudiants de suivre des cours en ligne, 
-                    avec système de gestion de contenu, quiz interactifs et suivi de progression.
+                    Création d'un pendu et d'un bataille navale.
                 </p>
                 <div class="project-tags">
-                    <span class="tag">React</span>
-                    <span class="tag">Node.js</span>
-                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">JAVA</span>
+
                 </div>
             </div>
 
             <div class="project-card">
-                <h3>Application Mobile Fitness</h3>
+                <h3>Projet Cinema</h3>
                 <p>
-                    Application de suivi d'entraînement avec planification d'exercices personnalisés, 
-                    tracking des performances et intégration de wearables.
+                    Création et gestion d'un site web pour un cinema.
                 </p>
                 <div class="project-tags">
-                    <span class="tag">React Native</span>
-                    <span class="tag">Firebase</span>
-                    <span class="tag">API REST</span>
+                    <span class="tag">PHP</span>
+                    <span class="tag">HTML/CSS</span>
+                    <span class="tag">PHPMyadmin</span>
                 </div>
             </div>
 
             <div class="project-card">
-                <h3>Dashboard Analytics</h3>
+                <h3>Projet Aeroport)</h3>
                 <p>
-                    Interface d'administration avec visualisation de données en temps réel, 
-                    graphiques interactifs et génération de rapports automatisés.
+                    Création et gestion d'un site web pour un aéroport.
                 </p>
                 <div class="project-tags">
-                    <span class="tag">Vue.js</span>
-                    <span class="tag">D3.js</span>
-                    <span class="tag">Express</span>
+                    <span class="tag">PHP</span>
+                    <span class="tag">HTML/CSS</span>
+                    <span class="tag">PHPMyadmin</span>
                 </div>
             </div>
 
             <div class="project-card">
-                <h3>Site E-commerce</h3>
+                <h3>Projet TO DO List fx</h3>
                 <p>
-                    Boutique en ligne complète avec gestion de catalogue, panier d'achat, 
-                    système de paiement sécurisé et interface d'administration.
+                    Création d'une TO DO LIST.
                 </p>
                 <div class="project-tags">
-                    <span class="tag">Next.js</span>
-                    <span class="tag">Stripe</span>
-                    <span class="tag">MongoDB</span>
+                    <span class="tag">javaFX</span>
+                    <span class="tag">JAVA</span>
                 </div>
             </div>
 
             <div class="project-card">
-                <h3>API de Réservation</h3>
+                <h3>Projet LPRS</h3>
                 <p>
-                    API RESTful pour système de réservation en ligne avec gestion des disponibilités, 
-                    notifications automatiques et synchronisation calendrier.
+                    Création et gestion d'un site web pour une école.
                 </p>
                 <div class="project-tags">
-                    <span class="tag">Node.js</span>
-                    <span class="tag">Docker</span>
-                    <span class="tag">Redis</span>
+                    <span class="tag">PHP</span>
+                    <span class="tag">HTML/CSS</span>
+                    <span class="tag">PHPMyadmin</span>
                 </div>
             </div>
 
             <div class="project-card">
-                <h3>Portfolio Interactif</h3>
+                <h3>Portfolio</h3>
                 <p>
-                    Site portfolio avec animations 3D, transitions fluides et effets visuels 
+                    Site portfolio avec animations 3D, transitions fluides et effets visuels
                     immersifs pour mettre en valeur des projets créatifs.
                 </p>
                 <div class="project-tags">
-                    <span class="tag">Three.js</span>
-                    <span class="tag">GSAP</span>
-                    <span class="tag">WebGL</span>
+                    <span class="tag">JS</span>
+                    <span class="tag">PHP/HTML/CSS</span>
                 </div>
             </div>
         </div>
@@ -596,69 +635,14 @@
         <h2 class="section-title">Veille Technologique</h2>
         <div class="veille-grid">
             <div class="veille-card">
-                <div class="veille-date">15 Octobre 2025</div>
-                <h3>L'essor de l'IA générative dans le développement</h3>
+                <div class="veille-date">13 Octobre 2025</div>
+                <h3>BAE Systems partners with PragoData to bolster Czech defence</h3>
                 <p>
-                    Les outils d'IA comme GitHub Copilot et ChatGPT transforment la façon dont 
-                    nous codons. Analyse des impacts sur la productivité et les bonnes pratiques 
-                    pour intégrer ces outils dans son workflow.
+                    The entities will consider merging their individual
+                    strengths and expertise to advance
+                    the modernisation and effectiveness of Czechia's defence assets.
                 </p>
-                <a href="#" class="veille-link">Lire plus →</a>
-            </div>
-
-            <div class="veille-card">
-                <div class="veille-date">8 Octobre 2025</div>
-                <h3>Les nouvelles fonctionnalités de React 19</h3>
-                <p>
-                    React 19 apporte des améliorations significatives avec le Server Components, 
-                    les Actions et une meilleure gestion du suspense. Tour d'horizon des nouveautés 
-                    qui vont changer notre manière de développer.
-                </p>
-                <a href="#" class="veille-link">Lire plus →</a>
-            </div>
-
-            <div class="veille-card">
-                <div class="veille-date">1 Octobre 2025</div>
-                <h3>WebAssembly : Le futur du web haute performance</h3>
-                <p>
-                    WebAssembly gagne en maturité et permet d'exécuter du code à vitesse native 
-                    dans le navigateur. Découverte des cas d'usage et des frameworks émergents 
-                    comme Blazor et Yew.
-                </p>
-                <a href="#" class="veille-link">Lire plus →</a>
-            </div>
-
-            <div class="veille-card">
-                <div class="veille-date">25 Septembre 2025</div>
-                <h3>Sécurité des applications web en 2025</h3>
-                <p>
-                    Les cyberattaques évoluent constamment. État des lieux des vulnérabilités 
-                    les plus courantes (XSS, CSRF, injection SQL) et des meilleures pratiques 
-                    pour sécuriser vos applications.
-                </p>
-                <a href="#" class="veille-link">Lire plus →</a>
-            </div>
-
-            <div class="veille-card">
-                <div class="veille-date">18 Septembre 2025</div>
-                <h3>L'architecture micro-frontend</h3>
-                <p>
-                    Les micro-frontends permettent de diviser des applications massives en 
-                    morceaux indépendants. Avantages, inconvénients et retours d'expérience 
-                    sur l'implémentation de cette architecture.
-                </p>
-                <a href="#" class="veille-link">Lire plus →</a>
-            </div>
-
-            <div class="veille-card">
-                <div class="veille-date">10 Septembre 2025</div>
-                <h3>CSS moderne : Les nouvelles possibilités</h3>
-                <p>
-                    Container Queries, :has(), cascade layers... CSS évolue rapidement avec 
-                    des fonctionnalités qui simplifient le responsive design et améliorent 
-                    la maintenabilité du code.
-                </p>
-                <a href="#" class="veille-link">Lire plus →</a>
+                <a href="https://www.army-technology.com/news/bae-systems-pragodata-czech-defence/" class="veille-link">Lire plus →</a>
             </div>
         </div>
     </section>
@@ -670,39 +654,96 @@
                 <h3>HTML/CSS</h3>
             </div>
             <div class="skill-item">
+                <h3>PHP</h3>
+            </div>
+            <div class="skill-item">
+                <h3>JAVA</h3>
+            </div>
+            <div class="skill-item">
                 <h3>JavaScript</h3>
             </div>
             <div class="skill-item">
-                <h3>React</h3>
-            </div>
-            <div class="skill-item">
-                <h3>Node.js</h3>
+                <h3>Git</h3>
             </div>
             <div class="skill-item">
                 <h3>UI/UX Design</h3>
             </div>
             <div class="skill-item">
-                <h3>Git</h3>
+                <h3>Outils de ticketing</h3>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="section">
-        <h2 class="section-title">Contact</h2>
-        <form class="contact-form">
-            <div class="form-group">
-                <input type="text" placeholder="Votre nom" required>
-            </div>
-            <div class="form-group">
-                <input type="email" placeholder="Votre email" required>
-            </div>
-            <div class="form-group">
-                <textarea placeholder="Votre message" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Envoyer</button>
-        </form>
-    </section>
+    <section id="entreprises" class="section">
+        <h2 class="section-title">Entreprises</h2>
+        <div class="entreprises-grid">
+            <div class="entreprise-card">
+                <div class="entreprise-header">
+                    <div class="entreprise-logo">A</div>
+                    <div class="entreprise-info">
+                        <h3>ANCV</h3>
+                        <p>sept.2025 - Aujourd'hui</p>
+                    </div>
+                </div>
+                <p class="entreprise-description">
+                    • Résolutions de tickets
+                    • Configuration de poste pour le télétravail
+                    • Configuration de téléphone portable
+                    • Installation de nouveaux matériels
+                </p>
+                <!--
+               <div class="project-tags">
+                   <span class="tag">React</span>
+                   <span class="tag">Node.js</span>
+                   <span class="tag">MongoDB</span>
+               </div>
+               -->
+           </div>
 
+           <div class="entreprise-card">
+               <div class="entreprise-header">
+                   <div class="entreprise-logo">B</div>
+                   <div class="entreprise-info">
+                       <h3>Cablenet, Malte</h3>
+                       <p>janv.2023 - fev.2023</p>
+                   </div>
+               </div>
+               <p class="entreprise-description">
+                   • Résolutions de tickets
+                   • Installation de box réseaux et décodeurs
+                   • Remplacement ou réparation de Box
+               </p>
+               <!--
+               <div class="project-tags">
+                   <span class="tag">Vue.js</span>
+                   <span class="tag">Tailwind</span>
+                   <span class="tag">TypeScript</span>
+               </div>
+               -->
+            </div>
+
+            <div class="entreprise-card">
+                <div class="entreprise-header">
+                    <div class="entreprise-logo">C</div>
+                    <div class="entreprise-info">
+                        <h3>Centre Technique Municipal Tremblay-en-France</h3>
+                        <p>juin.2024 - juil.2024</p>
+                    </div>
+                </div>
+                <p class="entreprise-description">
+                    • Déménagement d’école, salle de mariages
+                    • Livraison de matériel
+                </p>
+                <!--
+                <div class="project-tags">
+                    <span class="tag">PHP</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">MySQL</span>
+                </div>
+                -->
+            </div>
+        </div>
+    </section>
     <script>
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
