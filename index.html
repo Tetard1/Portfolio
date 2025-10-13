@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar ul {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00d4ff, #7b2ff7);
+            transition: width 0.3s ease;
+        }
+
+        .navbar a:hover::after,
+        .navbar a.active::after {
+            width: 100%;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7, #ff006e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: #a0a0a0;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 35px rgba(0, 212, 255, 0.5);
+        }
+
+        .section {
+            min-height: 100vh;
+            padding: 6rem 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #c0c0c0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+            border-color: rgba(0, 212, 255, 0.5);
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #00d4ff;
+        }
+
+        .project-card p {
+            color: #a0a0a0;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: rgba(0, 212, 255, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #00d4ff;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.05);
+            border-color: #7b2ff7;
+        }
+
+        .skill-item h3 {
+            font-size: 1.2rem;
+            color: #00d4ff;
+        }
+
+        .entreprises-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .entreprise-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .entreprise-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(123, 47, 247, 0.2);
+            border-color: rgba(123, 47, 247, 0.5);
+        }
+
+        .entreprise-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .entreprise-logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .entreprise-info h3 {
+            font-size: 1.5rem;
+            color: #00d4ff;
+            margin-bottom: 0.3rem;
+        }
+
+        .entreprise-info p {
+            color: #a0a0a0;
+            font-size: 0.95rem;
+        }
+
+        .entreprise-description {
+            color: #c0c0c0;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .veille-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .veille-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .veille-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 0, 110, 0.2);
+            border-color: rgba(255, 0, 110, 0.5);
+        }
+
+        .veille-date {
+            color: #ff006e;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .veille-card h3 {
+            font-size: 1.4rem;
+            color: #00d4ff;
+            margin-bottom: 1rem;
+        }
+
+        .veille-card p {
+            color: #c0c0c0;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .veille-link {
+            display: inline-block;
+            color: #7b2ff7;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .veille-link:hover {
+            color: #00d4ff;
+            transform: translateX(5px);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00d4ff;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            border: none;
+            border-radius: 50px;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 35px rgba(0, 212, 255, 0.5);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .navbar ul {
+                gap: 1rem;
+                padding: 0.5rem;
+            }
+
+            .navbar a {
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .projects-grid,
+            .skills-grid,
+            .entreprises-grid,
+            .veille-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#accueil" class="nav-link">Accueil</a></li>
+            <li><a href="#about" class="nav-link">À propos</a></li>
+            <li><a href="#entreprises" class="nav-link">Entreprises</a></li>
+            <li><a href="#projets" class="nav-link">Projets</a></li>
+            <li><a href="#veille" class="nav-link">Veille</a></li>
+            <li><a href="#competences" class="nav-link">Compétences</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h1>Votre Nom</h1>
+            <p>Développeur Web Full Stack | Designer | Créatif</p>
+            <a href="#projets" class="cta-button">Voir mes projets</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2 class="section-title">À propos de moi</h2>
+        <div class="about-content">
+            <p>
+                Passionné par le développement web et le design, je crée des expériences numériques uniques et engageantes. 
+                Avec plusieurs années d'expérience, je transforme des idées en solutions digitales innovantes.
+            </p>
+        </div>
+    </section>
+
+    <section id="entreprises" class="section">
+        <h2 class="section-title">Entreprises</h2>
+        <div class="entreprises-grid">
+            <div class="entreprise-card">
+                <div class="entreprise-header">
+                    <div class="entreprise-logo">A</div>
+                    <div class="entreprise-info">
+                        <h3>Entreprise Alpha</h3>
+                        <p>2022 - Présent</p>
+                    </div>
+                </div>
+                <p class="entreprise-description">
+                    Développeur Full Stack au sein d'une startup innovante spécialisée dans les solutions SaaS. 
+                    Responsable de l'architecture et du développement de nouvelles fonctionnalités.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">React</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">MongoDB</span>
+                </div>
+            </div>
+
+            <div class="entreprise-card">
+                <div class="entreprise-header">
+                    <div class="entreprise-logo">B</div>
+                    <div class="entreprise-info">
+                        <h3>Tech Solutions Beta</h3>
+                        <p>2020 - 2022</p>
+                    </div>
+                </div>
+                <p class="entreprise-description">
+                    Développeur Frontend dans une agence digitale. Création d'interfaces web modernes et responsive 
+                    pour des clients variés dans différents secteurs d'activité.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Vue.js</span>
+                    <span class="tag">Tailwind</span>
+                    <span class="tag">TypeScript</span>
+                </div>
+            </div>
+
+            <div class="entreprise-card">
+                <div class="entreprise-header">
+                    <div class="entreprise-logo">C</div>
+                    <div class="entreprise-info">
+                        <h3>Digital Gamma</h3>
+                        <p>2018 - 2020</p>
+                    </div>
+                </div>
+                <p class="entreprise-description">
+                    Stage puis alternance en tant que développeur web junior. Participation au développement 
+                    de sites e-commerce et d'applications web sur mesure.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">PHP</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">MySQL</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projets" class="section">
+        <h2 class="section-title">Mes Projets</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Plateforme E-learning</h3>
+                <p>
+                    Application web complète permettant aux étudiants de suivre des cours en ligne, 
+                    avec système de gestion de contenu, quiz interactifs et suivi de progression.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">React</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">PostgreSQL</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Application Mobile Fitness</h3>
+                <p>
+                    Application de suivi d'entraînement avec planification d'exercices personnalisés, 
+                    tracking des performances et intégration de wearables.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">React Native</span>
+                    <span class="tag">Firebase</span>
+                    <span class="tag">API REST</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Dashboard Analytics</h3>
+                <p>
+                    Interface d'administration avec visualisation de données en temps réel, 
+                    graphiques interactifs et génération de rapports automatisés.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Vue.js</span>
+                    <span class="tag">D3.js</span>
+                    <span class="tag">Express</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Site E-commerce</h3>
+                <p>
+                    Boutique en ligne complète avec gestion de catalogue, panier d'achat, 
+                    système de paiement sécurisé et interface d'administration.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Next.js</span>
+                    <span class="tag">Stripe</span>
+                    <span class="tag">MongoDB</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>API de Réservation</h3>
+                <p>
+                    API RESTful pour système de réservation en ligne avec gestion des disponibilités, 
+                    notifications automatiques et synchronisation calendrier.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Docker</span>
+                    <span class="tag">Redis</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Portfolio Interactif</h3>
+                <p>
+                    Site portfolio avec animations 3D, transitions fluides et effets visuels 
+                    immersifs pour mettre en valeur des projets créatifs.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Three.js</span>
+                    <span class="tag">GSAP</span>
+                    <span class="tag">WebGL</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="veille" class="section">
+        <h2 class="section-title">Veille Technologique</h2>
+        <div class="veille-grid">
+            <div class="veille-card">
+                <div class="veille-date">15 Octobre 2025</div>
+                <h3>L'essor de l'IA générative dans le développement</h3>
+                <p>
+                    Les outils d'IA comme GitHub Copilot et ChatGPT transforment la façon dont 
+                    nous codons. Analyse des impacts sur la productivité et les bonnes pratiques 
+                    pour intégrer ces outils dans son workflow.
+                </p>
+                <a href="#" class="veille-link">Lire plus →</a>
+            </div>
+
+            <div class="veille-card">
+                <div class="veille-date">8 Octobre 2025</div>
+                <h3>Les nouvelles fonctionnalités de React 19</h3>
+                <p>
+                    React 19 apporte des améliorations significatives avec le Server Components, 
+                    les Actions et une meilleure gestion du suspense. Tour d'horizon des nouveautés 
+                    qui vont changer notre manière de développer.
+                </p>
+                <a href="#" class="veille-link">Lire plus →</a>
+            </div>
+
+            <div class="veille-card">
+                <div class="veille-date">1 Octobre 2025</div>
+                <h3>WebAssembly : Le futur du web haute performance</h3>
+                <p>
+                    WebAssembly gagne en maturité et permet d'exécuter du code à vitesse native 
+                    dans le navigateur. Découverte des cas d'usage et des frameworks émergents 
+                    comme Blazor et Yew.
+                </p>
+                <a href="#" class="veille-link">Lire plus →</a>
+            </div>
+
+            <div class="veille-card">
+                <div class="veille-date">25 Septembre 2025</div>
+                <h3>Sécurité des applications web en 2025</h3>
+                <p>
+                    Les cyberattaques évoluent constamment. État des lieux des vulnérabilités 
+                    les plus courantes (XSS, CSRF, injection SQL) et des meilleures pratiques 
+                    pour sécuriser vos applications.
+                </p>
+                <a href="#" class="veille-link">Lire plus →</a>
+            </div>
+
+            <div class="veille-card">
+                <div class="veille-date">18 Septembre 2025</div>
+                <h3>L'architecture micro-frontend</h3>
+                <p>
+                    Les micro-frontends permettent de diviser des applications massives en 
+                    morceaux indépendants. Avantages, inconvénients et retours d'expérience 
+                    sur l'implémentation de cette architecture.
+                </p>
+                <a href="#" class="veille-link">Lire plus →</a>
+            </div>
+
+            <div class="veille-card">
+                <div class="veille-date">10 Septembre 2025</div>
+                <h3>CSS moderne : Les nouvelles possibilités</h3>
+                <p>
+                    Container Queries, :has(), cascade layers... CSS évolue rapidement avec 
+                    des fonctionnalités qui simplifient le responsive design et améliorent 
+                    la maintenabilité du code.
+                </p>
+                <a href="#" class="veille-link">Lire plus →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="competences" class="section">
+        <h2 class="section-title">Compétences</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <h3>HTML/CSS</h3>
+            </div>
+            <div class="skill-item">
+                <h3>JavaScript</h3>
+            </div>
+            <div class="skill-item">
+                <h3>React</h3>
+            </div>
+            <div class="skill-item">
+                <h3>Node.js</h3>
+            </div>
+            <div class="skill-item">
+                <h3>UI/UX Design</h3>
+            </div>
+            <div class="skill-item">
+                <h3>Git</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2 class="section-title">Contact</h2>
+        <form class="contact-form">
+            <div class="form-group">
+                <input type="text" placeholder="Votre nom" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Votre email" required>
+            </div>
+            <div class="form-group">
+                <textarea placeholder="Votre message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Envoyer</button>
+        </form>
+    </section>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('.section, .hero');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre message ! Je vous répondrai bientôt.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
