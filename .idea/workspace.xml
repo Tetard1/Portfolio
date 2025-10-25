@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82be1954-8e9f-4bc5-9b63-fa13f31edbd9" name="Changes" comment="" />
+    <list default="true" id="82be1954-8e9f-4bc5-9b63-fa13f31edbd9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,12 +24,12 @@
     &quot;assignee&quot;: &quot;Tetard1&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Tetard1/Tetard1.github.io.git&quot;,
-    &quot;accountId&quot;: &quot;75bfa7ff-6429-4e73-8526-66a2f596291b&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Tetard1/Portfolio.git",
+    "accountId": "75bfa7ff-6429-4e73-8526-66a2f596291b"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -77,7 +79,8 @@
       <workItem from="1759480102693" duration="433000" />
       <workItem from="1759819281115" duration="3000" />
       <workItem from="1760370056255" duration="191000" />
-      <workItem from="1760370265603" duration="5423000" />
+      <workItem from="1760370265603" duration="6387000" />
+      <workItem from="1760425454102" duration="18000" />
     </task>
     <servers />
   </component>
